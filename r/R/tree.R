@@ -46,10 +46,14 @@
       .h5_print_attrs(sub, paste0(prefix, child_pad))
       .h5_walk(sub, paste0(prefix, child_pad))
     } else {
+      # hdf5r reports dims in R (column-major) order, reversed from the
+      # on-disk/HDF5 order. Reverse for display so N-D shapes read the same as
+      # they do from Python/h5py (e.g. an image shows H x W x C, not C x W x H).
+      dims <- strsplit(as.character(row$dataset.dims), " x ", fixed = TRUE)[[1]]
       cat(sprintf("%s%s%-18s %-4s [%s]\n",
                   prefix, connector, row$name,
                   .h5_type_label(row$dataset.type_class),
-                  as.character(row$dataset.dims)))
+                  paste(rev(dims), collapse = " x ")))
     }
   }
   invisible(NULL)
