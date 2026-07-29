@@ -61,4 +61,5 @@ The single source of truth both the R and Python packages implement. An
 | read image         | `read_image()`      | `read_image()`        |
 | export image       | `export_image()`    | `export_image()`      |
 | list images        | `list_images()`     | `list_images()`       |
+| export tables→Parquet | `export_parquet()` | `export_parquet()`   |
 | directory view     | `print(h5)` / `h5_tree()` | `tree(path)`    |

@@ -13,6 +13,7 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Imports:
     hdf5r,
-    png
+    png,
+    arrow
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
