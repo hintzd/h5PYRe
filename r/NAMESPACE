@@ -1,0 +1,9 @@
+# Generated conceptually; safe to maintain by hand for this small package.
+export(h5_put)
+export(write_cohorts)
+export(read_cohorts)
+export(write_params)
+export(read_params)
+export(h5_tree)
+S3method(print, H5File)
+importFrom(hdf5r, H5File, h5attr, h5attributes)
