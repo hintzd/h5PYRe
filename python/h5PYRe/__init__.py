@@ -8,6 +8,7 @@ from .cohorts import read_cohorts, write_cohorts
 from .params import read_params, write_params
 from .images import write_image, read_image, export_image, list_images
 from .parquet import export_parquet
+from .pyre import pyre
 from .tree import tree
 
 __version__ = "0.1.0"
@@ -26,5 +27,6 @@ __all__ = [
     "export_image",
     "list_images",
     "export_parquet",
+    "pyre",
     "tree",
 ]

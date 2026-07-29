@@ -62,4 +62,10 @@ The single source of truth both the R and Python packages implement. An
 | export image       | `export_image()`    | `export_image()`      |
 | list images        | `list_images()`     | `list_images()`       |
 | export tables→Parquet | `export_parquet()` | `export_parquet()`   |
+| delete the file    | `pyre()`            | `pyre()`              |
 | directory view     | `print(h5)` / `h5_tree()` | `tree(path)`    |
+
+**Concurrency:** an h5PYRe file is a *serialized* interchange — one side
+writes and closes, then the other reads. HDF5 is not safe for simultaneous
+writers, so treat the file as a cross-process scratchpad/handoff, **not** as
+concurrent shared memory. `pyre()` is the cleanup step for that workflow.
