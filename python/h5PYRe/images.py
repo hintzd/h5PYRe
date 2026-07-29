@@ -53,11 +53,26 @@ def read_image(path, name):
         return np.asarray(f["images/" + name][()], dtype=np.uint8)
 
 
-def export_image(path, name, out_path):
-    """Write a stored image back to disk (format inferred from ``out_path``)."""
-    arr = read_image(path, name)
-    Image.fromarray(arr).save(out_path)
-    return out_path
+def export_image(path, out_dir, images=None):
+    """Export stored images to ``out_dir`` as ``<name>.png``.
+
+    By default exports every image under ``/images``; pass ``images`` (a list
+    of names) to export only a subset. The directory is created if needed.
+    Returns a dict mapping image name -> written file path.
+    """
+    names = list_images(path)
+    if images is not None:
+        missing = [n for n in images if n not in names]
+        if missing:
+            raise KeyError(f"export_image(): no such image(s): {missing}")
+        names = list(images)
+    os.makedirs(out_dir, exist_ok=True)
+    written = {}
+    for name in names:
+        fp = os.path.join(out_dir, f"{name}.png")
+        Image.fromarray(read_image(path, name)).save(fp)
+        written[name] = fp
+    return written
 
 
 def list_images(path):

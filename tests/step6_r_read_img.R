@@ -12,5 +12,5 @@ stopifnot(
   all(im[1, 1, ] == c(255, 0, 0)),       # red marker in the top-left
   all(im[24, 36, ] == c(0, 180, 0))      # green background far corner
 )
-export_image(file.path(tmp, "c.h5"), "pic", file.path(tmp, "c_fromR.png"))
-cat("  R read", paste(dim(im), collapse = "x"), "and exported c_fromR.png\n")
+export_image(file.path(tmp, "c.h5"), tmp, images = "pic")  # writes tmp/pic.png
+cat("  R read", paste(dim(im), collapse = "x"), "and exported pic.png\n")

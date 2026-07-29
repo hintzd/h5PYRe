@@ -56,17 +56,36 @@ read_image <- function(path, name) {
   aperm(raw, rev(seq_along(dim(raw))))   # restore natural orientation
 }
 
-#' Export a stored image back to disk as a PNG
+#' Export stored images to a directory as `<name>.png`
+#'
+#' By default exports every image under `/images`; pass `images` (a character
+#' vector of names) to export only a subset. The directory is created if
+#' needed.
 #'
 #' @param path HDF5 file path.
-#' @param name Image name.
-#' @param out_path Output PNG path.
-#' @return `out_path`, invisibly.
+#' @param out_dir Output directory.
+#' @param images Optional character vector of image names (default: all).
+#' @return A named character vector mapping image name -> written path,
+#'   invisibly.
 #' @export
-export_image <- function(path, name, out_path) {
-  arr <- read_image(path, name)          # 0-255 integer, (H, W[, C])
-  png::writePNG(arr / 255, out_path)
-  invisible(out_path)
+export_image <- function(path, out_dir, images = NULL) {
+  names <- list_images(path)
+  if (!is.null(images)) {
+    missing <- setdiff(images, names)
+    if (length(missing)) {
+      stop(sprintf("export_image(): no such image(s): %s",
+                   paste(missing, collapse = ", ")))
+    }
+    names <- images
+  }
+  if (!dir.exists(out_dir)) dir.create(out_dir, recursive = TRUE)
+  written <- character(0)
+  for (nm in names) {
+    fp <- file.path(out_dir, paste0(nm, ".png"))
+    png::writePNG(read_image(path, nm) / 255, fp)
+    written[nm] <- fp
+  }
+  invisible(written)
 }
 
 #' List image names stored under `/images`
