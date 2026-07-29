@@ -1,7 +1,7 @@
 #!/usr/bin/env Rscript
-# Direction A, step 1: R writes an h5cohort file that Python will read.
+# Direction A, step 1: R writes an h5PYRe file that Python will read.
 suppressPackageStartupMessages(library(hdf5r))
-pkg <- commandArgs(trailingOnly = TRUE)[1]  # path to h5cohort/r
+pkg <- commandArgs(trailingOnly = TRUE)[1]  # path to h5PYRe/r
 for (f in list.files(file.path(pkg, "R"), full.names = TRUE)) source(f)
 
 out <- commandArgs(trailingOnly = TRUE)[2]

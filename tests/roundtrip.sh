@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Cross-language round-trip test for h5cohort.
+# Cross-language round-trip test for h5PYRe.
 #   A: R writes  -> Python reads & asserts
 #   B: Python writes -> R reads & asserts
 # Uses the source trees directly (no install needed): R files are sourced,

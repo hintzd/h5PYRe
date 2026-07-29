@@ -1,11 +1,11 @@
-Package: h5cohort
+Package: h5PYRe
 Title: Cross-Language HDF5 Cohort and Parameter Interchange (R side)
 Version: 0.1.0
 Authors@R:
     person("Daniel", "Hintz", email = "dhintz@guardanthealth.com",
            role = c("aut", "cre"))
 Description: Read and write cohorts (as a named list of data frames) and
-    parameters to and from an HDF5 file following the shared h5cohort layout
+    parameters to and from an HDF5 file following the shared h5PYRe layout
     (see FORMAT.md). Also provides a directory-tree print method for HDF5
     files. The Python sibling package reads and writes the same layout, so
     files written by one language are read natively by the other.

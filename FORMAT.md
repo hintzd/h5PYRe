@@ -1,7 +1,7 @@
-# h5cohort file format (v0.1)
+# h5PYRe file format (v0.1)
 
 The single source of truth both the R and Python packages implement. An
-`h5cohort` file is a plain HDF5 file with this layout:
+`h5PYRe` file is a plain HDF5 file with this layout:
 
 ```
 /                      (optional root attribute `title`: string)
@@ -41,7 +41,7 @@ The single source of truth both the R and Python packages implement. An
 
 ## API parity
 
-| Concept            | R (`h5cohort`)      | Python (`h5cohort`)   |
+| Concept            | R (`h5PYRe`)      | Python (`h5PYRe`)   |
 |--------------------|---------------------|-----------------------|
 | overwrite-safe set | `h5_put(node,n,v)`  | `put(node,n,v)`       |
 | write cohorts      | `write_cohorts()`   | `write_cohorts()`     |

@@ -2,7 +2,7 @@
 """Direction A, step 2: Python reads the R-written file and asserts."""
 import sys
 
-import h5cohort as h5c
+import h5PYRe as h5c
 
 path = sys.argv[1]
 

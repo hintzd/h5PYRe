@@ -1,4 +1,4 @@
-"""h5cohort — cross-language HDF5 cohort & parameter interchange (Python side).
+"""h5PYRe — cross-language HDF5 cohort & parameter interchange (Python side).
 
 See ../FORMAT.md for the shared layout the R sibling package also implements.
 """

@@ -1,4 +1,4 @@
-# h5cohort
+# h5PYRe
 
 A cross-language HDF5 interchange for **cohorts** (a named list / dict of data
 frames) and **parameters** (small shared config/derived values). Files written
@@ -31,7 +31,7 @@ R CMD INSTALL r        # or: Rscript -e 'roxygen2::roxygenise("r")' first to reg
 ## Use
 
 ```r
-library(h5cohort)
+library(h5PYRe)
 write_cohorts("cohort.h5", list(Tissue = df1, Liquid = df2), title = "demo")
 write_params("cohort.h5", list(tf_threshold = 0.33, palette_hex = c("#00857C", "#6ECEB2")))
 cohorts <- read_cohorts("cohort.h5")   # named list of data frames
@@ -40,7 +40,7 @@ h5_tree("cohort.h5")                    # directory-tree view
 ```
 
 ```python
-import h5cohort as h5c
+import h5PYRe as h5c
 h5c.write_cohorts("cohort.h5", {"Tissue": df1, "Liquid": df2}, title="demo")
 h5c.write_params("cohort.h5", {"tf_threshold": 0.33, "palette_hex": ["#00857C", "#6ECEB2"]})
 cohorts = h5c.read_cohorts("cohort.h5")   # dict[str, DataFrame]

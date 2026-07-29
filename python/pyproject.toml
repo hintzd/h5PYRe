@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "h5cohort"
+name = "h5PYRe"
 version = "0.1.0"
 description = "Cross-language HDF5 cohort & parameter interchange (Python side)"
 readme = "README.md"
@@ -17,4 +17,4 @@ dependencies = [
 ]
 
 [tool.hatch.build.targets.wheel]
-packages = ["h5cohort"]
+packages = ["h5PYRe"]

@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Direction B, step 1: Python writes an h5cohort file that R will read."""
+"""Direction B, step 1: Python writes an h5PYRe file that R will read."""
 import sys
 
 import pandas as pd
 
-import h5cohort as h5c
+import h5PYRe as h5c
 
 path = sys.argv[1]
 
