@@ -20,13 +20,22 @@ sibling packages that agree on `FORMAT.md`. The value is the *convention*
 
 ## Install
 
+### If cloning
+
 ```bash
 # Python
 pip install ./python
 
 # R
 R CMD INSTALL r        # or: Rscript -e 'roxygen2::roxygenise("r")' first to regen docs
-```
+
+Otherwise (install directly from GitHub)
+
+# Python
+pip install "git+https://github.com/hintzd/h5PYRe.git#subdirectory=python"
+
+# R
+Rscript -e "devtools::install_github('hintzd/h5PYRe', subdir = 'r')"
 
 ## Use
 
