@@ -36,6 +36,7 @@ pip install "git+https://github.com/hintzd/h5PYRe.git#subdirectory=python"
 
 # R
 Rscript -e "devtools::install_github('hintzd/h5PYRe', subdir = 'r')"
+```
 
 ## Use
 
