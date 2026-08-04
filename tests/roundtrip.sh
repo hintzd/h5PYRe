@@ -31,5 +31,11 @@ Rscript "$HERE/step6_r_read_img.R" "$RPKG" "$TMP"
 "$PY" "$HERE/step7_py_check_img.py" "$TMP"
 
 echo
+echo "=== Direction D: params YAML (Python <-> R) ==="
+"$PY" "$HERE/step8_py_params_yaml.py" "$TMP/paramsPy.h5" "$TMP"
+Rscript "$HERE/step9_r_params_yaml.R" "$RPKG" "$TMP"
+"$PY" "$HERE/step10_py_check_params.py" "$TMP"
+
+echo
 echo "=== ALL ROUND-TRIP TESTS PASSED ==="
 rm -rf "$TMP"

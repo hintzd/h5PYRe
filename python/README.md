@@ -14,4 +14,7 @@ h5c.write_params("cohort.h5", {"tf_threshold": 0.33, "palette": ["#00857C"]})
 cohorts = h5c.read_cohorts("cohort.h5")   # dict[str, pd.DataFrame]
 params  = h5c.read_params("cohort.h5")    # dict
 print(h5c.tree("cohort.h5"))              # directory-tree view
+
+h5c.export_params("cohort.h5", "params.yaml")   # /params -> editable YAML
+h5c.import_params("cohort.h5", "params.yaml")    # YAML -> /params (round-trips)
 ```
