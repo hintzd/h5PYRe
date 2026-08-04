@@ -26,7 +26,11 @@ The single source of truth both the R and Python packages implement. An
   **dict of DataFrames** (Python), never concatenated.
 - **Params** live under `/params/`. Each is a 1-D dataset. Use params for
   small config/derived values shared across languages (thresholds, bin edges,
-  palettes, name mappings).
+  palettes, name mappings). `export_params()`/`import_params()` round-trip the
+  group through a human-editable YAML file; that YAML is an *external* view
+  (like the Parquet/PNG exports), not part of the on-disk format. Exporters
+  single-quote string scalars so YAML-1.1 ambiguous tokens (`no`, `n`, `on`,
+  …) read back as strings — not booleans — in both languages.
 - **Scalars** are stored as length-1 datasets. R reads them back as a length-1
   vector (idiomatic — everything is a vector); Python unwraps length-1 to a
   Python scalar. This asymmetry is by language convention, not a format
@@ -57,6 +61,8 @@ The single source of truth both the R and Python packages implement. An
 | read cohorts       | `read_cohorts()`    | `read_cohorts()`      |
 | write params       | `write_params()`    | `write_params()`      |
 | read params        | `read_params()`     | `read_params()`       |
+| export params→YAML | `export_params()`   | `export_params()`     |
+| import params←YAML | `import_params()`   | `import_params()`     |
 | write image        | `write_image()`     | `write_image()`       |
 | read image         | `read_image()`      | `read_image()`        |
 | export image       | `export_image()`    | `export_image()`      |
