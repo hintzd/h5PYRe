@@ -5,7 +5,7 @@ See ../FORMAT.md for the shared layout the R sibling package also implements.
 
 from .io import put, read_array, read_scalar, read_strings
 from .cohorts import read_cohorts, write_cohorts
-from .params import read_params, write_params
+from .params import read_params, write_params, export_params, import_params
 from .images import write_image, read_image, export_image, list_images
 from .parquet import export_parquet
 from .pyre import pyre
@@ -22,6 +22,8 @@ __all__ = [
     "write_cohorts",
     "read_params",
     "write_params",
+    "export_params",
+    "import_params",
     "write_image",
     "read_image",
     "export_image",
